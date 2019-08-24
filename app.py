@@ -16,9 +16,8 @@ def home():
 
 		message = clockwork.SMS(
 		    to = f'{num}',
-		    message = f'{txt}',
-		    from_name= '\nCheck out my portfolio for more apps!\nhttps:sinclairakotoportfolio.herokuapp.com\n\nDesign. Build. Apply!')
-
+		    message = f'{txt}')
+		
 		response = api.send(message)
 
 		if response.success:
