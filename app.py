@@ -17,7 +17,7 @@ def home():
 
 		message = clockwork.SMS(
 		    to = f'{num}',
-		    message = f'{txt}')
+		    message = f'{txt}',from_name='MrAkotoApps')
 
 		response = api.send(message)
 
