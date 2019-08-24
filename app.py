@@ -17,11 +17,14 @@ def home():
 		message = clockwork.SMS(
 		    to = f'{num}',
 		    message = f'{txt}',
-		    from_name= 'Sent by Mr Akoto\'s web app')
+		    from_name= '\nCheck out my portfolio for more apps!\nhttps:sinclairakotoportfolio.herokuapp.com\n\nDesign. Build. Apply!')
 
 		response = api.send(message)
 
-		return render_template('home.html', num=num, txt=txt)
+		if response.success:
+			return render_template('home.html', num=num, txt=txt)
+		else:
+			return redirect(url_for('home'))
 
 
 @app.route('/textMe', methods=['GET', 'POST'])
