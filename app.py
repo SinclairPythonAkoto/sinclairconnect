@@ -13,7 +13,7 @@ def home():
 		txt = request.form.get('sendText')
 		sender = request.form.get('sender')
 		from clockwork import clockwork
-		api = clockwork.API('1ddc9fd9717efbc300deb3d1753e182eb296d918',from_name='https:sinclairconnect.herokuapp.com/')
+		api = clockwork.API(f'1ddc9fd9717efbc300deb3d1753e182eb296d918',from_name='{sender}')
 
 		message = clockwork.SMS(
 		    to = f'{num}',
@@ -22,7 +22,7 @@ def home():
 		response = api.send(message)
 
 		if response.success:
-			return render_template('home.html', num=num, txt=txt)
+			return render_template('home.html', num=num, txt=txt, sender=sender)
 		else:
 			return redirect(url_for('home'))
 
