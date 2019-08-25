@@ -17,7 +17,7 @@ def home():
 		message = clockwork.SMS(
 		    to = f'{num}',
 		    message = f'{txt}',
-		    from_name= 'Sent by Mr Akoto\'s web app')
+		    from_name='MrAkotoApps')
 
 		response = api.send(message)
 
@@ -37,7 +37,7 @@ def textMe():
 		message = clockwork.SMS(
 		    to = '447481790498',
 		    message = f'{txt}',
-		    from_name=f'\n\nMessage sent by: {sender}.')
+		    from_name=f'{sender}')
 
 		response = api.send(message)
 

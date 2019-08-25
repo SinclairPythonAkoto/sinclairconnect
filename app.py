@@ -11,9 +11,8 @@ def home():
 	else:
 		num = request.form.get('number')
 		txt = request.form.get('sendText')
-		sender = request.form.get('sender')
 		from clockwork import clockwork
-		api = clockwork.API(f'1ddc9fd9717efbc300deb3d1753e182eb296d918',from_name='{sender}')
+		api = clockwork.API(f'1ddc9fd9717efbc300deb3d1753e182eb296d918')
 
 		message = clockwork.SMS(
 		    to = f'{num}',
@@ -22,7 +21,7 @@ def home():
 		response = api.send(message)
 
 		if response.success:
-			return render_template('home.html', num=num, txt=txt, sender=sender)
+			return render_template('home.html', num=num, txt=txt)
 		else:
 			return redirect(url_for('home'))
 
