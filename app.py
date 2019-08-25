@@ -22,7 +22,7 @@ def home():
 		response = api.send(message)
 
 		if response.success:
-			return render_template('home.html', num=num, txt=txt)
+			return render_template('home.html', num=num, txt=txt, sender=sender)
 		else:
 			return redirect(url_for('home'))
 
