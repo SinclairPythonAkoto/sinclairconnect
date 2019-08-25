@@ -12,7 +12,7 @@ def home():
 		num = request.form.get('number')
 		txt = request.form.get('sendText')
 		from clockwork import clockwork
-		api = clockwork.API('1ddc9fd9717efbc300deb3d1753e182eb296d918')
+		api = clockwork.API('1ddc9fd9717efbc300deb3d1753e182eb296d918',)
 
 		message = clockwork.SMS(
 		    to = f'{num}',
@@ -21,7 +21,11 @@ def home():
 
 		response = api.send(message)
 
-		return render_template('home.html', num=num, txt=txt)
+		if response.success:
+			return render_template('home.html', num=num, txt=txt)
+		else:
+			return redirect(url_for('home'))
+
 
 
 @app.route('/textMe', methods=['GET', 'POST'])
@@ -32,7 +36,7 @@ def textMe():
 		txt = request.form.get('sendText')
 		sender = request.form.get('senderName')
 		from clockwork import clockwork
-		api = clockwork.API('1ddc9fd9717efbc300deb3d1753e182eb296d918')
+		api = clockwork.API('1ddc9fd9717efbc300deb3d1753e182eb296d918',)
 
 		message = clockwork.SMS(
 		    to = '447481790498',
@@ -41,7 +45,10 @@ def textMe():
 
 		response = api.send(message)
 
-		return render_template('textMe.html', txt=txt)
+		if response.success:
+			return render_template('textMe.html', txt=txt, sender=sender)
+		else:
+			return redirect(url_for('textMe'))
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -11,18 +11,18 @@ def home():
 	else:
 		num = request.form.get('number')
 		txt = request.form.get('sendText')
-		sender = request.form.get('sender')
 		from clockwork import clockwork
-		api = clockwork.API(f'1ddc9fd9717efbc300deb3d1753e182eb296d918',from_name=f'{sender}')
+		api = clockwork.API('1ddc9fd9717efbc300deb3d1753e182eb296d918',)
 
 		message = clockwork.SMS(
 		    to = f'{num}',
-		    message = f'{txt}',from_name='MrAkotoApps')
+		    message = f'{txt}',
+		    from_name='MrAkotoApps')
 
 		response = api.send(message)
 
 		if response.success:
-			return render_template('home.html', num=num, txt=txt, sender=sender)
+			return render_template('home.html', num=num, txt=txt)
 		else:
 			return redirect(url_for('home'))
 
@@ -35,7 +35,7 @@ def textMe():
 		txt = request.form.get('sendText')
 		sender = request.form.get('senderName')
 		from clockwork import clockwork
-		api = clockwork.API('1ddc9fd9717efbc300deb3d1753e182eb296d918')
+		api = clockwork.API('1ddc9fd9717efbc300deb3d1753e182eb296d918',)
 
 		message = clockwork.SMS(
 		    to = '447481790498',
@@ -44,4 +44,7 @@ def textMe():
 
 		response = api.send(message)
 
-		return render_template('textMe.html', txt=txt, sender=sender)
+		if response.success:
+			return render_template('textMe.html', txt=txt, sender=sender)
+		else:
+			return redirect(url_for('textMe'))
