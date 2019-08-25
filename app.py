@@ -34,14 +34,14 @@ def textMe():
 	else:
 		txt = request.form.get('sendText')
 		sender = request.form.get('senderName')
-		sender = sender.replace(" ", "")
+		sendName = sender.replace(" ", "")
 		from clockwork import clockwork
 		api = clockwork.API('1ddc9fd9717efbc300deb3d1753e182eb296d918',)
 
 		message = clockwork.SMS(
 		    to = '447481790498',
 		    message = f'{txt.lower()}',
-		    from_name=f'{sender}')
+		    from_name=f'{sendName}')
 
 		response = api.send(message)
 
