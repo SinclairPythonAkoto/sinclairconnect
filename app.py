@@ -15,8 +15,8 @@ def home():
 		api = clockwork.API(f'1ddc9fd9717efbc300deb3d1753e182eb296d918')
 
 		message = clockwork.SMS(
-		    to = f'{num}',
-		    message = f'{txt}',from_name='MrAkotoApps')
+		    to =f'{num}',
+		    message =f'{txt}',from_name='MrAkotoApps')
 
 		response = api.send(message)
 
@@ -38,7 +38,7 @@ def textMe():
 
 		message = clockwork.SMS(
 		    to = '447481790498',
-		    message = f'{txt}',
+		    message =f'{txt}',
 		    from_name=f'{sender}')
 
 		response = api.send(message)
