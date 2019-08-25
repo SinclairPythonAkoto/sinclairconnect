@@ -39,7 +39,7 @@ def textMe():
 
 		message = clockwork.SMS(
 		    to = '447481790498',
-		    message = f'{txt}',
+		    message = f'{txt.lower()}',
 		    from_name=f'{sender}')
 
 		response = api.send(message)

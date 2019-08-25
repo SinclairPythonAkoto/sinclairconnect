@@ -9,7 +9,11 @@
     <p class="title">Enter your text in the box below:</p>
     <label for="textBox"></label>
     <textarea id="textBox" rows="10" cols="35" name="sendText" placeholder="write your text message here..." required></textarea><br>
-    <input type="text" name="senderName" placeholder="enter your name here.." required>
+    <div>
+      <p>Enter your name in <strong style="font-style: italic">LOWERCASE</strong> and <strong style="font-style: italic">WITHOUT</strong> any spaces.</p>
+      <input type="text" name="senderName" placeholder="enter your name in LOWERCASE here.." required>
+
+    </div>
     <div style="margin: 24px 0;">
       <a href="{{ url_for('home') }}"><i class="fa fa-comments"></i></a>
       <a href="{{ url_for('textMe') }}"><i class="fa fa-user-circle-o"></i></a>
