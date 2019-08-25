@@ -33,18 +33,17 @@ def textMe():
 		return render_template('textMe.html')
 	else:
 		txt = request.form.get('sendText')
-		sender = request.form.get('senderName')
 		from clockwork import clockwork
 		api = clockwork.API('1ddc9fd9717efbc300deb3d1753e182eb296d918',)
 
 		message = clockwork.SMS(
 		    to = '447481790498',
 		    message = f'{txt.lower()}',
-		    from_name=f'{sender.lower()}')
+		    from_name='MrAkotoApps')
 
 		response = api.send(message)
 
 		if response.success:
-			return render_template('textMe.html', txt=txt, sender=sender)
+			return render_template('textMe.html', txt=txt)
 		else:
 			return redirect(url_for('textMe'))
