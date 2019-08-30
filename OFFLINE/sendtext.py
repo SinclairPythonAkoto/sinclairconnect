@@ -12,7 +12,7 @@ def home():
 		num = request.form.get('number')
 		txt = request.form.get('sendText')
 		from clockwork import clockwork
-		api = clockwork.API('1ddc9fd9717efbc300deb3d1753e182eb296d918',)
+		api = clockwork.API('#####',)	# this has been left blank to protect API identity
 
 		message = clockwork.SMS(
 		    to = f'{num}',
@@ -36,7 +36,7 @@ def textMe():
 		txt = request.form.get('sendText')
 		sender = request.form.get('senderName')
 		from clockwork import clockwork
-		api = clockwork.API('1ddc9fd9717efbc300deb3d1753e182eb296d918',)
+		api = clockwork.API('#####',)	# this has been left blank to protect API identity
 
 		message = clockwork.SMS(
 		    to = '447481790498',
